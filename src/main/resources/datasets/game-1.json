@@ -1,0 +1,52 @@
+ {
+    "type" : "game",
+    "title" : "Lego Le Hobbit",
+    "header" : "<p>Sur la scène vidéoludique, les jeux LEGO sont désormais devenus aussi populaires qu’incontournables. Pas étonnant dans la mesure où, au fil des années, le studio Traveller’s Tales a su développer un vrai savoir-faire, apte à satisfaire à la fois les fans de LEGO et les férus de comics ou de cinéma. Il le prouve d’ailleurs encore aujourd’hui avec cette adaptation en briquettes de la saga du Hobbit qui cumule respect extrême du matériau original et gameplay optimisé pour être le plus accessible possible…</p>",
+    "content" : "<p>La liste des titres estampillés LEGO est longue : près d’une vingtaine de jeux – adaptions de films ou aventures originales - ont déjà vu le jour entre les mains expertes du studio Traveller’s Tales. Avec LEGO : The Hobbit, les développeurs semblent avoir mis les petits plats dans les grands. D’abord l’aventure, qui s’étale sur 18 niveaux, couvre les deux premiers films du Hobbit : Un Voyage inattendu et La Désolation de Smaug (vraisemblablement, des DLC devraient prendre en charge ultérieurement, lors de sa sortie, le troisième film Histoire d’un aller et retour). Ensuite, non content d’offrir les excellentes musiques originales des films ainsi que les voix françaises officielles, le jeu propose également de nombreuses cinématiques bavardes reprenant à l’identique les passages les plus célèbres de la saga. Traveller’s Tales oblige, ces dernières contiennent de temps à autre un joli grain de folie qui fait la marque du studio. Ainsi, lors de leur arrivée chez Bilbon au tout début de l’aventure, les nains transportent… une girafe ! Affichant des graphismes très détaillés et une animation plutôt réussie, LEGO : The Hobbit permet évidemment de jouer en coopération à deux individus sur le même écran (mais, comme d’habitude, pas de jeu en ligne disponible). Enfin, les développeurs précisent que plus de 80 personnages jouables, disponibles en mode exploration libre, sont à débloquer en cours de partie.</p>",
+    "author" : "McGivrer",
+    "createdAt" : "2015-07-01T16:48:23.000Z",
+    "publicationAt" : "2014-04-11T00:00:00.000Z",
+    "status":"PUBLISHED",
+    "metadata": {
+        "lang" : "fr",
+        "cover" : "http://ecx.images-amazon.com/images/I/91ijwR55wfL._SL240_.jpg",
+        "platforms" : [ 
+            "pc", 
+            "ps3", 
+            "ps4", 
+            "x360", 
+            "xone", 
+            "wiiu", 
+            "3ds", 
+            "vita"
+        ],
+        "platform" : "wiiu",
+        "rates" : {
+            "sound" : 15,
+            "gfx" : 16,
+            "music" : 15,
+            "feeling" : 16
+        },
+        "rate" : 16,
+        "tags" : [ 
+            "platform", 
+            "action"
+        ],
+        "plus" : [ 
+            "Une recette toujours efficace", 
+            "L'ambiance sonore", 
+            "Les voix des films", 
+            "Le hub", 
+            "Le coop c'est cool"
+        ],
+        "minus" : [ 
+            "A suivre...", 
+            "L'effet bis pas cool", 
+            "Petits soucis ergonomiques", 
+            "Les séquences de fuite"
+        ],
+        "studio" : "TT Games",
+        "editor" : "Warner Bros Games",
+        "publisher" : "Warner Bros Games"
+    }
+}

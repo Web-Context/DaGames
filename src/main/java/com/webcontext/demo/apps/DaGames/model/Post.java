@@ -23,6 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 /**
  * Post entity to manage content.
@@ -39,8 +40,9 @@ public class Post {
 	@NotNull
 	private String type;
 	
-	@Size(min = 2, max = 100, message = "title size must be between {min} and {max}")
+	@Size(min = 2, max = 100)
 	@NotNull
+	@Indexed(unique=true)
 	private String title;
 
 	@Size(min = 0, max = 400)
@@ -51,6 +53,8 @@ public class Post {
 	private String content;
 
 	private String author;
+	
+	private String createdBy;
 
 	private Date createdAt;
 
@@ -79,7 +83,7 @@ public class Post {
 	 * @param status
 	 * @param metadata
 	 */
-	public Post(String id,String type, String title, String header, String content, String author, Date createdAt, PublicationState status, Date publicationAt,
+	public Post(String id,String type, String title, String header, String content, String author, Date createdAt, String createdBy, PublicationState status, Date publicationAt,
 			Map<String, Object> metadata) {
 		super();
 		this.id = id;
@@ -89,6 +93,8 @@ public class Post {
 		this.content = content;
 		this.author = author;
 		this.createdAt = createdAt;
+		this.createdBy = createdBy;
+		
 		this.status = status;
 		this.publicationAt = publicationAt;
 		this.metadata = metadata;
@@ -198,6 +204,20 @@ public class Post {
 	}
 
 	/**
+	 * @return the createdBy
+	 */
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	/**
+	 * @param createdBy the createdBy to set
+	 */
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	/**
 	 * @return the status
 	 */
 	public PublicationState getStatus() {
@@ -284,6 +304,11 @@ public class Post {
 				return false;
 		} else if (!createdAt.equals(other.createdAt))
 			return false;
+		if (createdBy == null) {
+			if (other.createdBy != null)
+				return false;
+		} else if (!createdBy.equals(other.createdBy))
+			return false;
 		if (header == null) {
 			if (other.header != null)
 				return false;
@@ -325,6 +350,7 @@ public class Post {
 		.append(", content=").append(content)
 		.append(", author=").append(author)
 		.append(", createdAt=").append(createdAt)
+		.append(", createdBy=").append(createdBy)
 		.append(", status=").append(status)
 		.append(", publicationAt=").append(publicationAt)
 		.append(", metadata=").append(metadata)

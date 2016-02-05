@@ -41,6 +41,7 @@ public interface PostRepository extends MongoRepository<Post, Long> {
 	 */
 	List<Post> findByTitle( @Param("title" ) String title);
 	
+	List<Post> findByPlatform( @Param("platform" ) String platform);
 	
 	
 }
