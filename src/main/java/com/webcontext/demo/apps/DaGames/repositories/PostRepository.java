@@ -14,7 +14,7 @@
  *
  */
 
-package com.ge.demo.apps.DaGames.repositories;
+package com.webcontext.demo.apps.DaGames.repositories;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.ge.demo.apps.DaGames.model.Post;
+import com.webcontext.demo.apps.DaGames.model.Post;
 
 /**
  * Post entity MongoDB repository.

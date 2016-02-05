@@ -14,7 +14,7 @@
  *
  */
 
-package com.ge.demo.apps.DaGames.model;
+package com.webcontext.demo.apps.DaGames.model;
 
 /**
  * @author Frédéric Delorme.

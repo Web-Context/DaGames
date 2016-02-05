@@ -14,7 +14,7 @@
  *
  */
 
-package com.ge.demo.apps.DaGames.model;
+package com.webcontext.demo.apps.DaGames.model;
 
 import java.util.Date;
 import java.util.Map;
@@ -35,6 +35,10 @@ public class Post {
 	@Id
 	private String id;
 
+	
+	@NotNull
+	private String type;
+	
 	@Size(min = 2, max = 100, message = "title size must be between {min} and {max}")
 	@NotNull
 	private String title;
@@ -51,8 +55,10 @@ public class Post {
 	private Date createdAt;
 
 	private PublicationState status;
+	
+	private Date publicationAt;
 
-	private Map<String, String> metadata;
+	private Map<String, Object> metadata;
 
 	/**
 	 * Default constructor
@@ -73,16 +79,18 @@ public class Post {
 	 * @param status
 	 * @param metadata
 	 */
-	public Post(String id,String title, String header, String content, String author, Date createdAt, PublicationState status,
-			Map<String, String> metadata) {
+	public Post(String id,String type, String title, String header, String content, String author, Date createdAt, PublicationState status, Date publicationAt,
+			Map<String, Object> metadata) {
 		super();
 		this.id = id;
+		this.type = type;
 		this.title = title;
 		this.header = header;
 		this.content = content;
 		this.author = author;
 		this.createdAt = createdAt;
 		this.status = status;
+		this.publicationAt = publicationAt;
 		this.metadata = metadata;
 	}
 
@@ -98,6 +106,20 @@ public class Post {
 	 */
 	public void setId( String id ) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	/**
@@ -190,10 +212,18 @@ public class Post {
 		this.status = status;
 	}
 
+	public Date getPublicationAt() {
+		return publicationAt;
+	}
+
+	public void setPublicationAt(Date publicationAt) {
+		this.publicationAt = publicationAt;
+	}
+
 	/**
 	 * @return the metadata
 	 */
-	public Map<String, String> getMetadata() {
+	public Map<String, Object> getMetadata() {
 		return metadata;
 	}
 
@@ -201,7 +231,7 @@ public class Post {
 	 * @param metadata
 	 *            the metadata to set
 	 */
-	public void setMetadata( Map<String, String> metadata ) {
+	public void setMetadata( Map<String, Object> metadata ) {
 		this.metadata = metadata;
 	}
 
@@ -289,12 +319,14 @@ public class Post {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Post [")
 		.append("id=").append(id)
+		.append(", type=").append(type)
 		.append(", title=").append(title)
 		.append(", header=").append(header)
 		.append(", content=").append(content)
 		.append(", author=").append(author)
 		.append(", createdAt=").append(createdAt)
 		.append(", status=").append(status)
+		.append(", publicationAt=").append(publicationAt)
 		.append(", metadata=").append(metadata)
 		.append("]");
 		return builder.toString();

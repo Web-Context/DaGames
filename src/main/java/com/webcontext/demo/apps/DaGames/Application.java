@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ge.demo.apps.DaGames;
+package com.webcontext.demo.apps.DaGames;
 
 import java.util.Arrays;
 
