@@ -10,7 +10,6 @@ import java.util.List;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
-import com.webcontext.demo.apps.DaGames.model.Post;
 
 /**
  * @author Frédéric Delorme

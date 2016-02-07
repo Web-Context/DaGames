@@ -44,13 +44,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.5</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -60,4 +59,39 @@
 			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<url>https://github.com/Web-Context/dagames</url>
+		<connection>scm:git:git@github.com:web-context/dagames.git</connection>
+		<developerConnection>scm:git:git@github.com:web-context/dagames.git</developerConnection>
+		<tag>${project.version}</tag>
+	</scm>
+	<inceptionYear>2016</inceptionYear>
+	<issueManagement>
+		<system>Github Issues</system>
+		<url>https://github.com/Web-Context/dagames/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis-CI</system>
+		<url>https://travis-ci.org/Web-Context/DaGames</url>
+	</ciManagement>
+	<contributors>
+		<contributor>
+			<name>Frédéric Delorme</name>
+			<email>frederic.delorme@gmail.com</email>
+			<roles>
+				<role>Software Architect</role>
+			</roles>
+			<timezone>Europe/Paris</timezone>
+			<organization>Web-Context</organization>
+			<organizationUrl>http://webcontext.github.io/</organizationUrl>
+		</contributor>
+	</contributors>
+	<distributionManagement>
+		<repository>
+			<id>bintray-mcgivrer-maven</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/mcgivrer/maven</url>
+			<uniqueVersion>false</uniqueVersion>
+		</repository>
+	</distributionManagement>
 </project>
