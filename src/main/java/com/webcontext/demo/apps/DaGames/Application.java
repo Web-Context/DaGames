@@ -22,6 +22,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import com.webcontext.demo.apps.DaGames.model.Post;
+import com.webcontext.demo.apps.DaGames.repositories.IDataSetReader;
+
 /**
  * Bootstrapping the DaGames blog demo application.
  * 
@@ -35,9 +38,17 @@ public class Application {
 	 * 
 	 * @param args
 	 */
-	public static void main( String[] args ) {
+	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);
+		outputBean(ctx);
+		IDataSetReader<Post> dataset = new IDataSetReader<Post>();
+		dataset.importData("", "games.json", Post.class);
+	}
 
+	/**
+	 * @param ctx
+	 */
+	private static void outputBean(ApplicationContext ctx) {
 		System.out.println("Let's inspect the beans provided by Spring Boot:");
 
 		String[] beanNames = ctx.getBeanDefinitionNames();
