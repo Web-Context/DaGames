@@ -1,0 +1,8 @@
+<p>This is the Games view.</p>
+<div class="games">
+	<article class="game" ng-repeat="game in games">
+		<h1>${game.title}</h1>
+		<div class="header" ng-if="game.header!=''">${game.header}</div>
+		<div class="content" ng-if="game.content!=''">${game.content}</div>
+	</article>
+</div>

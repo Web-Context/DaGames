@@ -57,6 +57,40 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupid>com.github.trecloux</groupid>
+				<artifactid>yeoman-maven-plugin</artifactid>
+				<version>0.4</version>
+				<executions>
+					<execution>
+						<id>run-frontend-build</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+						<configuration>
+							<buildtool>grunt</buildtool>
+							<buildargs>build --force --no-color</buildargs>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<yeomanprojectdirectory>${project.basedir}/yo</yeomanprojectdirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.0-SNAPSHOT</version>
+				<resources>
+					<resource>
+						<directory>${project.basedir}/src/main/resources</directory>
+					</resource>
+					<resource>
+						<directory>${project.basedir}/yo/dist</directory>
+					</resource>
+				</resources>
+			</plugin>
 		</plugins>
 	</build>
 	<scm>

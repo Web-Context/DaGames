@@ -14,6 +14,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
 /**
+ * Read data set and inject into corresponding repository.
+ * 
  * @author Frédéric Delorme
  *
  */
@@ -42,7 +44,6 @@ public class DataSetReader<T, D> {
 						.fromJson(reader, new TypeToken<List<T>>() {
 						}.getType());
 				for (T item : list) {
-					System.out.println("Post:" + item.toString());
 					repo.insert(item);
 				}
 			} catch (FileNotFoundException | URISyntaxException e) {

@@ -24,7 +24,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.webcontext.demo.apps.DaGames.bootstrap.PostInjector;
+import com.webcontext.demo.apps.DaGames.bootstrap.DataBootstrap;
 
 /**
  * Bootstrapping the DaGames blog demo application.
@@ -37,7 +37,7 @@ import com.webcontext.demo.apps.DaGames.bootstrap.PostInjector;
 public class Application {
 
 	@Autowired
-	PostInjector injector;
+	DataBootstrap injector;
 
 	/**
 	 * Start Application.
