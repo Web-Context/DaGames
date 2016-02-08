@@ -18,12 +18,13 @@ package com.webcontext.demo.apps.DaGames;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
-import com.webcontext.demo.apps.DaGames.model.Post;
-import com.webcontext.demo.apps.DaGames.repositories.IDataSetReader;
+import com.webcontext.demo.apps.DaGames.bootstrap.PostInjector;
 
 /**
  * Bootstrapping the DaGames blog demo application.
@@ -32,23 +33,27 @@ import com.webcontext.demo.apps.DaGames.repositories.IDataSetReader;
  *
  */
 @SpringBootApplication
+@ComponentScan
 public class Application {
+
+	@Autowired
+	PostInjector injector;
+
 	/**
 	 * Start Application.
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main( String[] args ) {
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);
 		outputBean(ctx);
-		IDataSetReader<Post> dataset = new IDataSetReader<Post>();
-		dataset.importData("", "games.json", Post.class);
+
 	}
 
 	/**
 	 * @param ctx
 	 */
-	private static void outputBean(ApplicationContext ctx) {
+	private static void outputBean( ApplicationContext ctx ) {
 		System.out.println("Let's inspect the beans provided by Spring Boot:");
 
 		String[] beanNames = ctx.getBeanDefinitionNames();

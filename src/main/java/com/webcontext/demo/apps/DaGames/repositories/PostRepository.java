@@ -17,6 +17,7 @@
 package com.webcontext.demo.apps.DaGames.repositories;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
@@ -41,7 +42,7 @@ public interface PostRepository extends MongoRepository<Post, Long> {
 	 */
 	List<Post> findByTitle( @Param("title" ) String title);
 	
-	List<Post> findByPlatform( @Param("platform" ) String platform);
+	List<Post> findByMetadata( @Param("metadata" ) Map<String, String> metadata);
 	
 	
 }
