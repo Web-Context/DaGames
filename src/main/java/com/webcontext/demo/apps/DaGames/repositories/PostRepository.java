@@ -15,7 +15,7 @@ import com.webcontext.demo.apps.DaGames.model.Post;
  * @author Frédéric Delorme
  *
  */
-@RepositoryRestResource(collectionResourceRel = "post", path = "api/post")
+@RepositoryRestResource(collectionResourceRel = "api/post", path = "api/post")
 public interface PostRepository extends MongoRepository<Post, Long> {
 
 	/**

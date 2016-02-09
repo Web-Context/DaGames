@@ -76,7 +76,7 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       proxies: [{
-        context: '/api', // the context of the data service
+        context: '/', // the context of the data service
         host: 'localhost', // wherever the data service is running
         port: 8080 // the port that the data service is running on
       }],
@@ -94,7 +94,9 @@ module.exports = function (grunt) {
                 '/app/styles',
                 connect.static('./app/styles')
               ),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+              // Setup the proxy
+              require('grunt-connect-proxy/lib/utils').proxyRequest
             ];
           }
         }
