@@ -8,10 +8,9 @@
  * Service in the staticApp.
  */
 angular.module('staticApp')
-  .service('GameService',['$resource', function ($resource) {
-	  var Game = $resource('/post/:id', {id:'@id'});
-	  Game.get({id:123})
-	      .$promise.then(function(user) {
-	        $scope.user = user;
-	      });
+  .factory('Games',['$resource', function ($resource) {
+	  return $resource('http://localhost:8080/api/post/:id', 
+	  	{ id: '@id'}, 
+	  	{ update: { method:'PUT' }
+	  });
   }]);

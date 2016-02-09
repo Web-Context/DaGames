@@ -8,10 +8,6 @@
  * Controller of the staticApp
  */
 angular.module('staticApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope','Games', function ($scope, Games) {
+  	$scope.games = Games.query();
+  }]);
