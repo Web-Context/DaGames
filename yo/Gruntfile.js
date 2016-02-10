@@ -9,9 +9,13 @@
 
 module.exports = function (grunt) {
 
+  require('load-grunt-tasks')(grunt);
+	
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+  
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
@@ -73,12 +77,21 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729
+        livereload: 35729,
+        middleware: function (connect) {
+            return [proxySnippet];
+        }
       },
       proxies: [{
-        context: '/', // the context of the data service
-        host: 'localhost', // wherever the data service is running
-        port: 8080 // the port that the data service is running on
+          context: '/api',
+          host: 'localhost',
+          port: 8080,
+          https: false,
+          changeOrigin: false,
+          xforward: false,
+          rewrite: {
+              '^/api': '/api'
+          }
       }],
       livereload: {
         options: {
@@ -96,7 +109,7 @@ module.exports = function (grunt) {
               ),
               connect.static(appConfig.app),
               // Setup the proxy
-              require('grunt-connect-proxy/lib/utils').proxyRequest
+              proxySnippet
             ];
           }
         }
@@ -459,6 +472,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
+      'configureProxies:server',
       'connect:livereload',
       'watch'
     ]);
