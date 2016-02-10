@@ -24,6 +24,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Post entity to manage content.
@@ -53,13 +54,14 @@ public class Post {
 	private String content;
 
 	private String author;
-	
+	@DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
 	private String createdBy;
 
 	private Date createdAt;
 
 	private PublicationState status;
-	
+
+	@DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
 	private Date publicationAt;
 
 	private Map<String, Object> metadata;

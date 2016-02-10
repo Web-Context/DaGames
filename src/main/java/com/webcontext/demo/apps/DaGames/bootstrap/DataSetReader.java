@@ -40,7 +40,7 @@ public class DataSetReader<T, D> {
 						.getClass().getResource("/" + filename).toURI()
 						.getPath()));
 				List<T> list = new GsonBuilder()
-						.setDateFormat("yyyy-MM-dd HH:mm:ss").create()
+						.setDateFormat("yyyy/MM/dd HH:mm:ss").create()
 						.fromJson(reader, new TypeToken<List<T>>() {
 						}.getType());
 				for (T item : list) {

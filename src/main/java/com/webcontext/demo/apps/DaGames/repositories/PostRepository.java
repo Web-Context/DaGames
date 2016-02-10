@@ -15,8 +15,8 @@ import com.webcontext.demo.apps.DaGames.model.Post;
  * @author Frédéric Delorme
  *
  */
-@RepositoryRestResource(collectionResourceRel = "post", path = "api/post")
-public interface PostRepository extends MongoRepository<Post, Long> {
+@RepositoryRestResource(collectionResourceRel = "post", path = "post")
+public interface PostRepository extends MongoRepository<Post, String> {
 
 	/**
 	 * Retrieve all Post on title filtering.
@@ -26,6 +26,11 @@ public interface PostRepository extends MongoRepository<Post, Long> {
 	 */
 	List<Post> findByTitle( @Param("title" ) String title);
 	
+	/**
+	 * Retrieve data on meta key
+	 * @param metadata
+	 * @return
+	 */
 	List<Post> findByMetadata( @Param("metadata" ) Map<String, String> metadata);
 	
 	

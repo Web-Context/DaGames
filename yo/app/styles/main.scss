@@ -89,3 +89,40 @@ body {
     border-bottom: 0;
   }
 }
+
+.games .game {
+	h1 {
+		font-size:14pt;
+		font-weight: bold;
+	}
+	.cover{
+		
+		float:right;
+		margin-left:20px;
+		margin-bottom:10px;
+		width:80px; 
+	}
+	.mini {
+			width:60px; 
+	}
+	.medium {
+		width:120px; 
+	}
+	.tags {
+		list-style: disc;
+		margin:0px;
+		padding:0px;
+		li {
+			display: inline-block;
+			a {
+				text-decoration: none;
+			}
+			a:after {
+				content:","
+			}
+		}
+		li:last-child a:after{
+			content:"";
+		}
+	}
+}
