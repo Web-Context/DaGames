@@ -2,14 +2,21 @@
 	<p>Latest Games</p>
 	<div class="games">
 		<article class="game" ng-repeat="game in games">
-			<img class="cover" src="{{game.metadata.cover}}" title="cover for {{game.title}}"/>
-			<h1><a href="#/game/{{game._id}}" title="see details for {{game.title}}">{{game.title}}</a></h1>
-			<ul class="tags"><li ng-repeat="tag in game.metadata.tags"><a href="#/tags/{{tag}}" title="filter on tag {{tag}}">{{tag}}</a></ul>
+			<img class="cover" src="{{game.metadata.cover}}"
+				title="cover for {{game.title}}" />
+			<h1>
+				<a href="#/game/{{game._id}}" title="see details for {{game.title}}">{{game.title}}</a>
+			</h1>
+			<ul class="tags">
+				<li ng-repeat="tag in game.metadata.tags"><a
+					href="#/tags/{{tag}}" title="filter on tag {{tag}}">{{tag}}</a>
+			</ul>
 			<div class="header" ng-if="game.header!=''"
 				ng-bind-html="game.header"></div>
 			<div class="info">
-				<div class="author" >{{game.createdBy}}</div>
-				<div class="createdAt" >{{game.publicationAt | date:'dd/MM/yyyy'}}</div>
+				<div class="author">{{game.createdBy}}</div>
+				<div class="createdAt">{{game.publicationAt |
+					date:'dd/MM/yyyy'}}</div>
 			</div>
 		</article>
 	</div>

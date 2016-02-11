@@ -6,9 +6,17 @@
  * @description # GameService Service in the staticApp.
  */
 angular.module('staticApp').factory('Game', [ '$resource', function($resource) {
-	return $resource('/api/post/:id', {
-		id : '@id'
+	return $resource('/api/post/search/findByType?type=:type', {
+		id : '@id',
+		type: '@type'
 	}, {
+		'findByTitleLike' : {
+			method : 'GET',
+			action :'findByTypeAndTitleLike',
+			transformResponse : function(data) {
+				return angular.fromJson(data);
+			}
+		},
 		'query' : {
 			method : 'GET',
 			transformResponse : function(data) {
@@ -31,6 +39,5 @@ angular.module('staticApp').factory('Game', [ '$resource', function($resource) {
 			}
 		}
 	}, {
-
 	});
 } ]);

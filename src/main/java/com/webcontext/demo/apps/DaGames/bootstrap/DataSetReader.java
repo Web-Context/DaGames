@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
@@ -14,22 +15,27 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
 /**
- * Read data set and inject into corresponding repository.
+ * Read and inject data set into corresponding repository.
  * 
  * @author Frédéric Delorme
  *
  */
 @Component
 public class DataSetReader<T, D> {
+	private static Logger logger = Logger.getLogger(DataSetReader.class);
 
 	@Autowired
 	private MongoRepository<T, ?> repo;
 
 	/**
+	 * Import data to <code>clazz</code> entity collection from JSON file <code>filename</code>.
 	 * 
-	 * @param collection
 	 * @param filename
+	 *            JSON filename Data Set to insert into collection (or table).
 	 * @param clazz
+	 *            The Class object representing data for each occurrence in json file.
+	 * @param emptyOnly
+	 *            if true, data will be inserted only if targeted collection is empty.
 	 */
 	@SuppressWarnings("serial")
 	public void importData( String filename, Class<T> clazz, boolean emptyOnly ) {
@@ -47,7 +53,7 @@ public class DataSetReader<T, D> {
 					repo.insert(item);
 				}
 			} catch (FileNotFoundException | URISyntaxException e) {
-				e.printStackTrace();
+				logger.error("Unable to insert data to collection", e);
 			}
 
 		}

@@ -24,14 +24,31 @@ public interface PostRepository extends MongoRepository<Post, String> {
 	 * @param title
 	 * @return
 	 */
-	List<Post> findByTitle( @Param("title" ) String title);
-	
+	List<Post> findByTitleLike( @Param("title") String title );
+
+	/**
+	 * Retrieve all post base on type value.
+	 * 
+	 * @param type
+	 * @return
+	 */
+	List<Post> findByType( @Param("type") String type );
+
+	/**
+	 * Retrieve all post base on type value and title.
+	 * 
+	 * @param type
+	 * @return
+	 */
+	List<Post> findByTypeAndTitleLike( @Param("type") String type,
+			@Param("title") String title );
+
 	/**
 	 * Retrieve data on meta key
+	 * 
 	 * @param metadata
 	 * @return
 	 */
-	List<Post> findByMetadata( @Param("metadata" ) Map<String, String> metadata);
-	
-	
+	List<Post> findByMetadata( @Param("metadata") Map<String, String> metadata );
+
 }

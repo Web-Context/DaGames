@@ -1,0 +1,26 @@
+<div class="searchPage">
+	<form class="well form-search">
+		<label>Search:</label> <input type="text" ng-model="keywords"
+			class="input-medium search-query" placeholder="Keywords...">
+		<button type="submit" class="btn" ng-click="search()">Search</button>
+		<p class="help-block">Try for example: "watch_dog" or "Lego"</p>
+	</form>
+	<div class="results">
+		<article class="result" ng-repeat="result in results">
+			<h1>
+				<a href="#/post/game/{{result._id}}"
+					title="see details for {{result.title}}">{{result.title}}</a>
+			</h1>
+			<ul class="tags">
+				<li ng-repeat="tag in result.metadata.tags"><a
+					href="#/tags/{{tag}}" title="filter on tag {{tag}}">{{tag}}</a>
+			</ul>
+			<div class="header" ng-if="result.header!=''"
+				ng-bind-html="result.header"></div>
+			<div class="info">
+				<div class="author">{{result.createdBy}}</div>
+				<div class="createdAt">{{result.createdAt | date:'dd/MM/yyyy'}}</div>
+			</div>
+		</article>
+	</div>
+</div>
