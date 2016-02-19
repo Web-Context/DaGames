@@ -1,0 +1,14 @@
+{
+  "name": "DaGames",
+  "description": "A demo application with SpringBoot and AngularJS",
+  "scripts": {
+  },
+  "env": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
